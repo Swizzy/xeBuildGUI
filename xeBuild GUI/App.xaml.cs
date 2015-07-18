@@ -6,6 +6,7 @@
 // Copyright (c) 2015 Swizzy. All rights reserved.
 
 using System;
+using System.Collections;
 using System.Drawing;
 using System.IO;
 using System.Reflection;
@@ -32,7 +33,9 @@ namespace xeBuild_GUI {
                                                                                                .FromEmptyOptions());
 
         internal static Version Version = Assembly.GetAssembly(typeof(App)).GetName().Version;
+        internal static AppSettings Settings = new AppSettings();
         private void AppStart(object sender, StartupEventArgs e) { new MainWindow(e.Args).Show(); }
+
     }
 
 }
