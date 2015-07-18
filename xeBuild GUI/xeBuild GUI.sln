@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xeBuild GUI", "xeBuild GUI\xeBuild GUI.csproj", "{ADA6B694-7044-4BBC-B499-6F25333DC58B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{ADA6B694-7044-4BBC-B499-6F25333DC58B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ADA6B694-7044-4BBC-B499-6F25333DC58B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ADA6B694-7044-4BBC-B499-6F25333DC58B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ADA6B694-7044-4BBC-B499-6F25333DC58B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
