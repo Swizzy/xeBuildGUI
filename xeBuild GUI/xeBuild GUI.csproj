@@ -60,6 +60,8 @@
     <Compile Include="Converters\BaseConverter.cs" />
     <Compile Include="Converters\SizeConverter.cs" />
     <Compile Include="AppSettings.cs" />
+    <Compile Include="Validators\CpukeyValidator.cs" />
+    <Compile Include="Validators\Ipv4AddressValidator.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

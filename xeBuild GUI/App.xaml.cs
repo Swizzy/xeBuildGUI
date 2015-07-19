@@ -34,7 +34,12 @@ namespace xeBuild_GUI {
 
         internal static Version Version = Assembly.GetAssembly(typeof(App)).GetName().Version;
         internal static AppSettings Settings = new AppSettings();
-        private void AppStart(object sender, StartupEventArgs e) { new MainWindow(e.Args).Show(); }
+        internal static MainWindow AppWindow;
+
+        private void AppStart(object sender, StartupEventArgs e) {
+            AppWindow = new MainWindow(e.Args);
+            AppWindow.Show();
+        }
 
     }
 

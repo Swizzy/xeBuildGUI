@@ -1,0 +1,22 @@
+Implement furhter CPUKey checks in the validator for that
+Design the advanced settings tab
+Design the console information tab
+Design these tools:
+	- NAND Extractor (Extract data from NAND's)
+	- SMC Config Editor (Edit SMC Config information)
+	- x360NANDManager stuff (Read/Write NAND hardware + flash chips maybe also post monitoring...)
+	- UART Monitoring (Maybe...)
+	- Dashlaunch configuration tool (Might throw this one in the bin)
+Design these xeBuild GUI Editors:
+	- SMC Patchset editor
+	- Target kernel editor
+	- Target type editor
+	- Motherboard editor
+	- Optional patches editor (info about the patches)
+Implement further settings shit
+Implement dealing with commandline args (such as drag 'n' drop a nand dump)
+Implement further CPUKey checks (cpukey validation, part of x360Utils connections)
+Implement all of the xeBuild args generation stuff
+Implement x360NANDManager connections
+Implement x360Utils connections
+Implement drag 'n' drop support for NANDS

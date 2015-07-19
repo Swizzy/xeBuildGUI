@@ -6,13 +6,13 @@
 // Copyright (c) 2015 Swizzy. All rights reserved.
 
 using System.Collections.Generic;
-using System.Windows.Documents;
 
 namespace xeBuild_GUI {
 
     internal class AppSettings {
-        private OptionalPatch[] Patches;
         public UserModes Mode;
+        private OptionalPatch[] Patches;
+        private string _cpukey;
 
         internal AppSettings() {
             Mode = UserModes.Simple;
@@ -25,9 +25,17 @@ namespace xeBuild_GUI {
                             };
         }
 
-        public OptionalPatch[] GetAvailablePatches() {
-            return Patches;
+        public string Cpukey {
+            get {
+                return _cpukey;
+            }
+            set {
+                _cpukey = value;
+                App.AppWindow.UpdateValidation();
+            }
         }
+
+        public OptionalPatch[] GetAvailablePatches() { return Patches; }
 
         internal enum UserModes {
             Simple,

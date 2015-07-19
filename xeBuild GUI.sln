@@ -5,6 +5,11 @@ VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xeBuild GUI", "xeBuild GUI\xeBuild GUI.csproj", "{ADA6B694-7044-4BBC-B499-6F25333DC58B}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{99AD1923-9C1F-4787-8214-BDCB65097A95}"
+	ProjectSection(SolutionItems) = preProject
+		TODOList.txt = TODOList.txt
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

@@ -6,7 +6,10 @@
 // Copyright (c) 2015 Swizzy. All rights reserved.
 
 using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Net.Sockets;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
@@ -35,6 +38,25 @@ namespace xeBuild_GUI {
                 ModesMenu.Items.Add(itm);
             }
             SetMode();
+            SetDefaultIp();
+            ProcessArgs(args);
+        }
+
+        private void ProcessArgs(ICollection<string> args) {
+            if(args.Count > 0)
+                MessageBox.Show("ERROR: Not implemented yet...");
+        }
+
+        public string Cpukey { get { return App.Settings.Cpukey; } set { App.Settings.Cpukey = value; } }
+        public string IpAddress { get; set; }
+
+        public void SetDefaultIp() {
+            foreach(var ipsplit in
+                from t in Dns.GetHostAddresses(Dns.GetHostName()) where t.AddressFamily == AddressFamily.InterNetwork
+                select t.ToString().Split(".".ToCharArray())) {
+                IpAddress = ipsplit[0] + "." + ipsplit[1] + "." + ipsplit[2] + ".";
+                return;
+            }
         }
 
         private void ModeChanged(object sender, RoutedEventArgs routedEventArgs) {
@@ -43,10 +65,6 @@ namespace xeBuild_GUI {
                 return;
             App.Settings.Mode = (AppSettings.UserModes)itm.Header;
             SetMode();
-        }
-
-        private void MainWindow_OnSizeChanged(object sender, SizeChangedEventArgs e) {
-            CpukeyBox.Text = "Width: " + Width + " Height: " + Height;
         }
 
         private void SetMode() {
@@ -59,12 +77,18 @@ namespace xeBuild_GUI {
             AdvancedSettingsTab.Visibility = App.Settings.Mode == AppSettings.UserModes.Advanced
                                                  ? Visibility.Visible : Visibility.Collapsed;
             ModeText.Content = App.Settings.Mode;
+            if(App.Settings.Mode != AppSettings.UserModes.Advanced) {
+                if(AdvancedSettingsTab.IsSelected)
+                    ConsoleInfoTab.IsSelected = true;
+            }
             //TODO: make mode changes
         }
 
-        private void MainWindow_OnLocationChanged(object sender, EventArgs e) {
+        private void UpdatePatchesSize() {
             PatchesPopup.HorizontalOffset += 1;
             PatchesPopup.HorizontalOffset -= 1;
+            var p = PatchesButton.TranslatePoint(new Point(0, 0), this);
+            PatchesBorder.MaxHeight = ActualHeight - p.Y - PatchesButton.ActualHeight - 40;
         }
 
         private void PatchesButton_OnClick(object sender, RoutedEventArgs e) { OpenPatches(); }
@@ -95,6 +119,24 @@ namespace xeBuild_GUI {
         }
 
         private void PatchesButton_OnMouseEnter(object sender, MouseEventArgs e) { OpenPatches(); }
+
+        internal void UpdateValidation() {
+            UpdateValidation(CpukeyBox);
+            UpdateValidation(IpBox);
+        }
+
+        private static void UpdateValidation(FrameworkElement tbox) {
+            if(tbox == null)
+                return;
+            var expr = tbox.GetBindingExpression(TextBox.TextProperty);
+            if(expr != null)
+                expr.UpdateSource();
+        }
+
+        private void MainWindow_OnLoaded(object sender, RoutedEventArgs e) {
+            UpdateValidation();
+            UpdatePatchesSize();
+        }
     }
 
 }

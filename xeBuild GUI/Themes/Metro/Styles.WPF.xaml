@@ -667,11 +667,14 @@
                     <DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="DisabledVisualElement" />
                   </Storyboard>
                 </VisualState>
+				<VisualState x:Name="ReadOnly"/>
+				<!--
                 <VisualState x:Name="ReadOnly">
                   <Storyboard>
                     <DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="ReadOnlyVisualElement" />
                   </Storyboard>
                 </VisualState>
+				-->
               </VisualStateGroup>
               <VisualStateGroup x:Name="FocusStates">
                 <VisualState x:Name="Focused">
